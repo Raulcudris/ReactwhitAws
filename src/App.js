@@ -1,10 +1,12 @@
+import { Heading, withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import { API, graphqlOperation } from 'aws-amplify';
 import { useEffect, useState } from 'react';
 import './App.css';
 import { createTask } from './graphql/mutations';
 import { listTasks } from './graphql/queries';
 
-function App() {
+function App({signOut, user}) {
   
   const [task , setTask] = useState({
     name: "",
@@ -32,6 +34,7 @@ function App() {
 
   return (
     <>
+    <Heading level={1}>Hello {user.username}</Heading>
       <form onSubmit={handleSubmit} >
       <input  name='name' 
               placeholder='Title'
@@ -48,9 +51,10 @@ function App() {
       <button >Submit</button>
     </form>
     { JSON.stringify(tasks)}
-    //41:06 https://www.youtube.com/watch?v=ZBMYWnQ-_EM
+    <button onClick={signOut} >sign out</button>
+
     </>  
     );
 }
 
-export default App;
+export default withAuthenticator(App);

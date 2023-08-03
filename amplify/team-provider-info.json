@@ -14,6 +14,15 @@
     "categories": {
       "api": {
         "reactamplified": {}
+      },
+      "auth": {
+        "reactamplified2ca68823": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dzzbup8u450lk",
+          "type": "manual"
+        }
       }
     }
   }
